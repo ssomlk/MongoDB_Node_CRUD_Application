@@ -51,7 +51,7 @@ MongoClient.connect('mongodb://localhost:27017/MyApp', (err, client) => {
     });
     
     //Update a user
-    db.collection('Users').findOneAndUpdate({name:'Test 1'},{location:'New Zealand'}).then((result) => {
+    db.collection('Users').findOneAndUpdate({location:'SL'},{$set : {location:'New Papagini'}},{returnOriginal:false}).then((result) => {
         console.log(result);
     },(err) => {
         console.log("Error updating the user");
