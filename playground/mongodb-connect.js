@@ -49,6 +49,13 @@ MongoClient.connect('mongodb://localhost:27017/MyApp', (err, client) => {
     },(err) => {
         console.log("Error deleting from Users");
     });
+    
+    //Update a user
+    db.collection('Users').findOneAndUpdate({name:'Test 1'},{location:'New Zealand'}).then((result) => {
+        console.log(result);
+    },(err) => {
+        console.log("Error updating the user");
+    });
 
     client.close();
 });
