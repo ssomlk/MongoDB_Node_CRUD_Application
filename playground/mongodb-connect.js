@@ -6,16 +6,16 @@
 const {MongoClient, ObjectID} = require('mongodb');
 
 //Change the Server URL to your Mongod.exe running URL
-MongoClient.connect('mongodb://localhost:27017/ToDoApp', (err, client) => {
+MongoClient.connect('mongodb://localhost:27017/MyApp', (err, client) => {
     if(err){
         return console.log('Unable to connect to the MongoDB server');
     }
     console.log('Connected to MongoDB server successfully');
 
-    var db = client.db('ToDoApp');
+    var db = client.db('test_DB');
 
     //Insert document
-    db.collection('Todos').insertOne({
+    db.collection('Article').insertOne({
         text:'Article 2 created',
         completed:false
     },(err, result) => {
@@ -26,7 +26,7 @@ MongoClient.connect('mongodb://localhost:27017/ToDoApp', (err, client) => {
     });
 
     db.collection('Users').insertOne({
-        name:'Laki',
+        name:'Test 1',
         age:27,
         location:'New Zealand'
     },(err, result) =>{
